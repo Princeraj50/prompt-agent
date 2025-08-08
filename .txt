@@ -1,1 +1,56 @@
 
+Perfect. Here's a clean, structured summary of your project idea in text form—ideal for documentation, planning, or sharing with teammates:
+
+---
+
+## 📌 Project Summary: Email-Based Authorization for Contact Update (POC)
+
+### 🧑‍💼 Context
+You’re working with a client who has **10 users**. Occasionally, they’ll request a **contact update** (i.e., change an email ID). However, **only the manager’s email** is authorized to make such requests.
+
+---
+
+### 🎯 Objective
+Build a **Proof of Concept (POC)** that:
+- Accepts contact update requests.
+- Verifies if the request is coming from the **authorized manager email**.
+- Updates the contact **only if** the request is valid.
+- Rejects unauthorized requests.
+
+---
+
+### 🗄️ Local Setup
+- **Database:** Local DB (e.g., SQLite, PostgreSQL, or even a JSON file for simplicity).
+- **Tables/Schema:**
+  - `users`: stores user IDs and their current email addresses.
+  - `authorized_emails`: stores manager email(s) allowed to request updates.
+
+---
+
+### 🔐 Authorization Logic
+1. Incoming request contains:
+   - Target user ID
+   - New email ID
+   - Requestor’s email ID
+
+2. System checks:
+   - Is the requestor’s email in the `authorized_emails` list?
+
+3. If **authorized**:
+   - Update the user’s email in the database.
+   - Return success response.
+
+4. If **unauthorized**:
+   - Reject the request.
+   - Return error message stating lack of permission.
+
+---
+
+### 🧪 POC Scope
+- Run everything locally.
+- No external APIs or cloud services.
+- Focus on core logic: **authorization + update flow**.
+
+---
+
+Would you like a sample schema or a basic Python/Node.js scaffold to kickstart this? I can whip that up in minutes.
